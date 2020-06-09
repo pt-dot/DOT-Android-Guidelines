@@ -85,23 +85,25 @@ res-feature
     | Local Variable    | camelCase             | `imageView`            |
     | Constants         | UPPER_SNAKE_CASE      | `BASE_URL`             |
     | Resource          | lower_snake_case      | `activity_main`        |
+    | Resource  IDs     | camelCase             | `ivMain`               |
 
 - ## JAVA
     ### Variable declaration Order ⏳
 
-    | Type              | Prefix                    | Example                   |
-    | ----------------- | :--------------------:    | :---------------------:   |
-    | View              | (viewType ViewID)         | `ivSplash`                |
-    | Object            | m-(Object Name)           | `mNetwork`                |
-    | Binding           | binding(Binding Name)     | `bindingMain`             |
-    | Constants         | WHERE_WHAT                | `NETWORK_REQUEST_CODE`    |
+    | Type              | Prefix                                    | Example                   |
+    | ----------------- | :--------------------:                    | :---------------------:   |
+    | View              | (viewType ViewID)                         | `ivSplash`                |
+    | Object            | (Object Name)                             | `network`                 |
+    | ViewModel         | ---                                       | `viewModel`               |
+    | Binding           | binding(`Binding Name` if more than one)  | `bindingMain` or `binding`| 
+    | Constants         | WHERE_WHAT                                | `NETWORK_REQUEST_CODE`    |
 
 - ## Resources
-    > Resource Naming Based `'WHAT'_ 'WHERE'_ 'DESCRIPTION'_ 'UTIL'`
+    > Resource Naming Based `'WHAT'_ 'WHERE'_ 'DESCRIPTION'`
 
-    | WHAT              | WHERE            |	DESCRIPTION                         | UTIL (OPTIONAL) |
-    | ------------      | :---------------:|:------:                                |:----:           |
-    | FIXED (btn, rv)   | LOCATION         | difference multiple 'WHAT' in 'WHERE'  | UTIL DATA       |
+    | WHAT              | WHERE            |	DESCRIPTION                         |
+    | ------------      | :---------------:|:------:                                |
+    | FIXED (btn, rv)   | LOCATION         | difference multiple 'WHAT' in 'WHERE'  |
 
     ### Layout ('WHAT_WHERE') 🖼
     
@@ -116,32 +118,32 @@ res-feature
 
     ### Layout resource IDs (WHAT_WHERE_DESCRIPTION) 🧲
     
-    | Component         | Prefix            | Example                         |
-    | --------------    | :------:          | :---------------------:         |
-    | Button            | `btn_`            | `btn_register_signup`           |
-    | TextView          | `tv_`             | `tv_welcome_title`              |
-    | EditText          | `et_`             | `et_login_password`             |
-    | ImageView         | `iv_`             | `iv_splash_logo`                |
-    | RelativeLayout    | `rl_`             | `rl_main_root`                  |
-    | LinearLayout      | `ll_`             | `ll_login_root`                 |
-    | ConstraintLayout  | `cl_`             | `cl_splash_root`                |
-    | TableLayout       | `tl_`             | `tl_detail_sheet`               |
-    | TabLayout         | `tab_`            | `tab_main_nav`                  |
-    | ListView          | `lv_`             | `lv_detail_messages`            |
-    | RecyclerView      | `rv_`             | `rv_chat`                       |
-    | Checkbox          | `cb_`             | `cb_login_remember_me`          |
-    | ProgressBar       | `pb_`             | `pb_register_upload_percent`    |
-    | RadioGroup        | `rg_`             | `rg_input_gender`               |
-    | RadioButton       | `rb_`             | `rb_input_female`               |
-    | ToggleButton      | `tb_`             | `tb_control_visibility`         |
-    | Spinner           | `spin_`           | `spin_edit_profile_location`    |
-    | Menu              | `menu_`           | `menu_main_country`             |
-    | GalleryView       | `gv_`             | `gv_main_album`                 |
-    | WebView           | `wv_`             | `wv_main_preview`               |
-    | Bottom Navigation | `bot_nav_`        | `bot_nav_main`                  |
-    | Library Layout    | `lib_`            | `lib_main_bot_nav`              |
-    | Custom Widget     | `wg_`             | `wg_main_grid_rv`               |
-
+    | Component                 | Prefix      | Example                       |
+    | --------------            | :------:    | :---------------------:       |
+    | Button                    | `btn`       | `btnRegisterSignup`           |
+    | TextView                  | `tv`        | `tvWelcomeTitle`              |
+    | EditText                  | `et`        | `etLoginPassword`             |
+    | ImageView                 | `iv`        | `ivSplashLogo`                |
+    | RelativeLayout            | `rl`        | `rlMainRoot`                  |
+    | LinearLayout              | `ll`        | `llLoginRoot`                 |
+    | ConstraintLayout          | `cl`        | `clSplashRoot`                |
+    | TableLayout               | `tl`        | `tlDetailSheet`               |
+    | TabLayout                 | `tab`       | `tabMainNav`                  |
+    | ListView                  | `lv`        | `lvDetailMessages`            |
+    | RecyclerView              | `rv`        | `rvChat`                      |
+    | Checkbox                  | `cb`        | `cbLoginRememberMe`           |
+    | ProgressBar               | `pb`        | `pbRegisterUploadPercent`     |
+    | RadioGroup                | `rg`        | `rgInputGender`               |
+    | RadioButton               | `rb`        | `rbInputFemale`               |
+    | ToggleButton              | `tb`        | `tbControlVisibility`         |
+    | Spinner                   | `spin`      | `spinEditProfileLocation`     |
+    | Menu                      | `menu`      | `menuMainSearch`             |
+    | GalleryView               | `gv`        | `gvMainAlbum`                 |
+    | WebView                   | `wv`        | `wvMainPreview`               |
+    | Bottom Navigation         | `botnav`    | `botNavMain`                  |
+    | Library Layout            | `lib`       | `libMainBotNav`               |
+    | Custom Widget             | `wg`        | `wgMainGridRv`                |
+    | Layout Binding ViewModel  |  ---        | `vm`                          |
 
     ### Drawables (WHERE_WHAT_DESCRIPTION) 🎨
     
@@ -169,16 +171,20 @@ res-feature
     
     ### Strings(WHERE_DESCRIPTION) 🧵
     
-    | TYPE                              | Location              | Prefix           | Example                                |
-    | --------------------------------  |:-:                    | :--------------: | :--------------------------------:     |
-    | More than one features/package    | root                  | `all_`           | `all_et_hint_name`                     |
-    | Menu title                        | feature location      | `menu_`          | `fragment_list_menu_search.png`        |
-    | action                            | feature location      | `act_`           | `login_act_clicked`                    |
-    | error warning success message     | feature location      | `msg_`           | `network_msg_upload_success`           |
-    | label                             | root                  | ---              | `all_name`                             |
-    | view inside layout                | feature location      | `view prefix_`   | `splash_tv_description`                |
-    | app_name                          | gradle/productFlavors | ---              | `resValue "string", "app_name", "Dev"` |
-
+    | TYPE                              | Location                        | Prefix           | Example                                                                                        |
+    | --------------------------------  |:-:                              | :--------------: | :--------------------------------:                                                             |
+    | More than one features/package    | root                            | `all_`           | `all_et_hint_name`                                                                             |
+    | Menu title                        | feature location                | `menu_`          | `fragment_list_menu_search.png`                                                                |
+    | action                            | feature location                | `act_`           | `login_act_clicked`                                                                            |
+    | error warning success message     | feature location                | `msg_`           | `network_msg_upload_success`                                                                   |
+    | label                             | root                            | ---              | `all_name`                                                                                     |
+    | view inside layout                | feature location                | `view prefix_`   | `splash_tv_description`                                                                        |
+    | app_name                          | gradle/productFlavors           | ---              | `resValue "string", "app_name", "Dev"`                                                         |
+    | API ENDPOINT                      | gradle/productFlavors           | ---              | `buildConfigField "String", "END_POINT", "\"https://sandbox.dot.co.id/project-name/api/v1/\""` |
+    
+    Gradle string Location is used for changed productFlavor i.e `development` `staging` `production`
+    
+    
 # Linking resources directories tutorial 📌
  - Set Hierarchy view from android to Project
  - create directory `res-features` in `app/src/main`
