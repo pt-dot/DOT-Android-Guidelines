@@ -169,18 +169,18 @@ res-feature
     | Tab icons                       | `ic_tab`         | `ic_tab_recent.png`        |
     | Dialog icons                    | `ic_dialog`      | `ic_dialog_info.png`       |
     
-    ### Strings(WHERE_DESCRIPTION) 🧵
+    ### Strings(WHERE_Prefix_DESCRIPTION) 🧵
     
-    | TYPE                              | Location                        | Prefix           | Example                                                                                        |
-    | --------------------------------  |:-:                              | :--------------: | :--------------------------------:                                                             |
-    | More than one features/package    | root                            | `all_`           | `all_et_hint_name`                                                                             |
-    | Menu title                        | feature location                | `menu_`          | `fragment_list_menu_search.png`                                                                |
-    | action                            | feature location                | `act_`           | `login_act_clicked`                                                                            |
-    | error warning success message     | feature location                | `msg_`           | `network_msg_upload_success`                                                                   |
-    | label                             | root                            | ---              | `all_name`                                                                                     |
-    | view inside layout                | feature location                | `view prefix_`   | `splash_tv_description`                                                                        |
-    | app_name                          | gradle/productFlavors           | ---              | `resValue "string", "app_name", "Dev"`                                                         |
-    | API ENDPOINT                      | gradle/productFlavors           | ---              | `buildConfigField "String", "END_POINT", "\"https://sandbox.dot.co.id/project-name/api/v1/\""` |
+    | TYPE                              | Location                        | Prefix                          | Example                                                                                        |
+    | --------------------------------  |:-:                              | :--------------:                | :--------------------------------:                                                             |
+    | More than one features/package    | root                            | `all_`                          | `all_et_hint_name`                                                                             |
+    | Menu title                        | feature location                | `menu_`                         | `fragment_list_menu_search.png`                                                                |
+    | action                            | feature location                | `act_`                          | `login_act_clicked`                                                                            |
+    | error warning success message     | feature location                | `msg_`                          | `network_msg_upload_success`                                                                   |
+    | label                             | root                            | ---                             | `all_name`                                                                                     |
+    | view inside layout                | feature location                | `view prefix_`(tv_, btn_, et_)  | `splash_tv_title` `login_btn_label`, `register_et_email_hint`                                  |
+    | app_name                          | gradle/productFlavors           | ---                             | `resValue "string", "app_name", "Dev"`                                                         |
+    | API ENDPOINT                      | gradle/productFlavors           | ---                             | `buildConfigField "String", "END_POINT", "\"https://sandbox.dot.co.id/project-name/api/v1/\""` |
     
     Gradle string Location is used for changed productFlavor i.e `development` `staging` `production`
     
